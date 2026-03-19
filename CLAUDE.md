@@ -16,21 +16,26 @@ If unsure, ask: "Would you prefer English or Spanish? / Prefieres ingles o espan
 
 ## Skills
 
-**6 core skills are bundled with this project** in `.claude/skills/`. They load automatically — no installation needed. The following skills are available:
+**6 core skills are bundled** in `.claude/skills/` and load automatically — no installation needed:
 
-| Skill | Purpose | Fallback |
-|-------|---------|----------|
-| `frontend-design` | Design methodology, anti-AI-slop rules | Follow `docs/design-guide.md` |
-| `shadcn-ui` | Component library (React + Tailwind) | Install shadcn manually |
-| `ui-ux-pro-max` | Color/font/style recommendations via `python3 ~/.claude/skills/ui-ux-pro-max-repo/src/ui-ux-pro-max/scripts/search.py "<query>" --domain <domain>` | Manual selection |
-| `vercel-react-best-practices` | Next.js performance optimization | Standard Next.js defaults |
-| `humanizer` | Remove AI writing patterns from ALL copy | Follow AI patterns checklist in `docs/design-guide.md` |
-| `playwright-cli` | Visual QA via browser screenshots | User checks localhost manually |
-| `seo-audit` | SEO checks after build | Basic meta tags only |
-| `web-reader` | Analyze reference URLs user provides | Skip reference analysis |
-| `deep-research` | Research user's industry for better copy | Generate copy from brief |
+| Bundled Skill | Purpose |
+|---------------|---------|
+| `frontend-design` | Design methodology, anti-AI-slop rules, typography/color/layout/motion guidelines |
+| `shadcn-ui` | Component library (React + Tailwind) with accessibility patterns |
+| `humanizer` | Remove AI writing patterns from ALL copy (24+ pattern detection) |
+| `vercel-react-best-practices` | Next.js performance optimization (62 rules) |
+| `playwright-cli` | Visual QA via browser screenshots |
+| `seo-audit` | SEO checks — meta tags, headings, alt text, structured data |
 
-The bundled skills (frontend-design, shadcn-ui, humanizer, vercel-react-best-practices, playwright-cli, seo-audit) are in `.claude/skills/` and load automatically. The optional skills (ui-ux-pro-max, web-reader, deep-research) must be installed separately by the user — if missing, skip them gracefully and use the fallback.
+**3 optional skills** (NOT bundled — only available if the user has installed them separately):
+
+| Optional Skill | Purpose | Fallback if Missing |
+|----------------|---------|-------------------|
+| `ui-ux-pro-max` | Color/font/style recommendations via Python CLI | Use `docs/design-guide.md` industry palettes and font pairings |
+| `web-reader` | Analyze reference URLs the user provides | Skip reference analysis, choose based on industry |
+| `deep-research` | Research user's industry for better copy | Generate copy from the business brief |
+
+If an optional skill is missing, use the fallback silently — don't ask the user to install anything mid-flow.
 
 See `docs/skill-reference.md` for full invocation examples and all `--domain` values.
 
@@ -151,10 +156,13 @@ If the user wants a contact form:
 Make it fully responsive (mobile-first). Test at 375px, 768px, 1024px, 1440px.
 
 ### Phase 5: Preview & QA
+
+**Start the dev server:**
 ```bash
 cd site && npm run dev
 ```
-If `playwright-cli` is available:
+
+**Visual QA with playwright-cli** (bundled — should be available):
 ```bash
 playwright-cli open http://localhost:3000
 playwright-cli screenshot --filename=preview-desktop.png
@@ -164,10 +172,14 @@ playwright-cli resize 768 1024
 playwright-cli screenshot --filename=preview-tablet.png
 playwright-cli close
 ```
+If playwright-cli doesn't work (e.g., missing browser binary), tell the user: "Open http://localhost:3000 in your browser to see the preview."
 
-Run the quality checklist (see below). Fix any issues found. Then ask the user for feedback with a specific question like "How does the hero section feel?" — not "Let me know what you think."
+**Run SEO audit** (bundled `seo-audit` skill):
+Review the built page against SEO best practices — check title tags, meta descriptions, heading hierarchy, image alt text, and structured data. Fix any issues before showing to the user.
 
-If playwright-cli is unavailable, tell the user: "Open http://localhost:3000 in your browser to see the preview."
+**Run the quality checklist** (see below). Fix any issues found. Then ask the user for feedback with a specific question like "How does the hero section feel?" — not "Let me know what you think."
+
+**Iteration:** When the user gives feedback, make the change and show the result immediately. Don't ask "would you like me to change that?" — just do it. If they want a major redesign (different archetype, colors, or layout), go back to Phase 2 and re-present options.
 
 ### Phase 6: Deploy (Optional)
 Ask the user if they want to deploy to a live preview URL.
