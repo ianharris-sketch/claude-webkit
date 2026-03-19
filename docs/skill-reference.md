@@ -1,7 +1,7 @@
 # Skill Reference
 
 ## How Skills Work
-Skills are markdown files that Claude Code reads automatically. This project bundles **10 core skills** in `.claude/skills/` — they load automatically when Claude opens the project. Optional skills must be installed by the user at `~/.claude/skills/` or `~/.agents/skills/`.
+Skills are markdown files that Claude Code reads automatically. This project bundles **13 skills** in `.claude/skills/` — they all load automatically when Claude opens the project.
 
 ---
 
@@ -19,23 +19,11 @@ Skills are markdown files that Claude Code reads automatically. This project bun
 | `playwright-cli` | `.claude/skills/playwright-cli/` | Browser automation for screenshots and visual QA. Includes 7 reference docs. |
 | `chrome-bridge-automation` | `.claude/skills/chrome-bridge-automation/` | Fallback visual QA — connects to user's Chrome via Midscene extension. Vision-driven screenshots. |
 | `seo-audit` | `.claude/skills/seo-audit/` | Technical SEO analysis, meta tags, heading structure. |
+| `ui-ux-pro-max` | `.claude/skills/ui-ux-pro-max/` | Design intelligence database — 161 color palettes, 57 font pairings, 50+ styles. Python CLI for search. |
+| `web-reader` | `.claude/skills/web-reader/` | Extract content from reference URLs the user provides. |
+| `deep-research` | `.claude/skills/deep-research/` | Systematic web research for industry-specific copy and content. |
 
-These are always available — no installation needed.
-
-## Optional Skills (user must install separately)
-
-| Skill | Install Location | What It Does | Fallback |
-|-------|-----------------|-------------|----------|
-| `ui-ux-pro-max` | `~/.claude/skills/ui-ux-pro-max-repo/` | Searchable databases of UI styles, color palettes, font pairings. Has a Python CLI. | Use `docs/design-guide.md` for manual color/font selection |
-| `web-reader` | `~/.agents/skills/web-reader/` | Extract content from reference URLs the user provides | Skip reference analysis |
-| `deep-research` | `~/.agents/skills/deep-research/` | Systematic web research for industry-specific copy | Generate copy from business brief |
-
-Check if an optional skill is installed:
-```bash
-ls ~/.claude/skills/<skill-name>/SKILL.md 2>/dev/null || ls ~/.agents/skills/<skill-name>/SKILL.md 2>/dev/null
-```
-
-If an optional skill is missing, use the fallback and move on. Don't ask the user to install skills mid-flow.
+All 13 skills are bundled — no installation needed.
 
 ---
 
@@ -92,7 +80,7 @@ The skill checks:
 - Mobile readiness
 - Structured data opportunities (JSON-LD for rich snippets)
 
-### ui-ux-pro-max (optional — only if installed)
+### ui-ux-pro-max (bundled)
 
 **Available `--domain` values:**
 
@@ -110,19 +98,19 @@ The skill checks:
 
 ```bash
 # Color palette for a restaurant
-python3 ~/.claude/skills/ui-ux-pro-max-repo/src/ui-ux-pro-max/scripts/search.py "restaurant warm" --domain color
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "restaurant warm" --domain color
 
 # Font pairing for elegant vibe
-python3 ~/.claude/skills/ui-ux-pro-max-repo/src/ui-ux-pro-max/scripts/search.py "elegant serif" --domain typography
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "elegant serif" --domain typography
 
 # Landing page structure for SaaS
-python3 ~/.claude/skills/ui-ux-pro-max-repo/src/ui-ux-pro-max/scripts/search.py "saas" --domain landing
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "saas" --domain landing
 
 # UI style recommendations for luxury brand
-python3 ~/.claude/skills/ui-ux-pro-max-repo/src/ui-ux-pro-max/scripts/search.py "luxury brand" --domain style
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "luxury brand" --domain style
 
 # Stack-specific recommendations for Next.js + shadcn
-python3 ~/.claude/skills/ui-ux-pro-max-repo/src/ui-ux-pro-max/scripts/search.py "modern clean" --stack shadcn
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "modern clean" --stack shadcn
 ```
 
 ### playwright-cli (bundled)
@@ -145,7 +133,7 @@ playwright-cli screenshot --filename=preview-tablet.png
 playwright-cli close
 ```
 
-### web-reader (optional — only if installed)
+### web-reader (bundled)
 Use when the user provides reference URLs they like the look of.
 ```
 Invoke by telling Claude to use the web-reader skill to analyze a URL.
@@ -154,7 +142,7 @@ colors, layout approach, typography, and overall design direction."
 ```
 The skill extracts page content, metadata, and structure — useful for understanding what the user likes about a reference site.
 
-### deep-research (optional — only if installed)
+### deep-research (bundled)
 Use when you need industry-specific knowledge for writing better copy or making design decisions.
 ```
 Invoke by telling Claude to use deep-research for a specific topic.

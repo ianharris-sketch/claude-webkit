@@ -141,7 +141,7 @@ You now have:
 
 ## Bundled Skills
 
-This project comes with **10 professional skills pre-installed** in `.claude/skills/`. They load automatically when Claude opens the project — you don't need to install anything extra.
+This project comes with **13 professional skills pre-installed** in `.claude/skills/`. They load automatically when Claude opens the project — you don't need to install anything extra.
 
 | Skill | What It Does |
 |-------|-------------|
@@ -155,21 +155,9 @@ This project comes with **10 professional skills pre-installed** in `.claude/ski
 | `playwright-cli` | Browser automation so Claude can screenshot and check the design |
 | `chrome-bridge-automation` | Fallback browser — connects to your Chrome to check the design visually |
 | `seo-audit` | SEO analysis for meta tags, headings, and search visibility |
-
-<details>
-<summary><strong>Optional: Extra Skills for Even Better Results</strong></summary>
-
-These optional skills enhance the experience but are **not required**:
-
-| Skill | What It Does | How It Helps |
-|-------|-------------|-------------|
-| `ui-ux-pro-max` | Design intelligence database | AI-powered color palette, font pairing, and style recommendations |
-| `web-reader` | Web content extraction | Analyzes reference websites the user likes |
-| `deep-research` | Systematic web research | Better industry-specific copy and content |
-
-Check the [Claude Code skills documentation](https://docs.anthropic.com/en/docs/claude-code) for installation instructions.
-
-</details>
+| `ui-ux-pro-max` | Design intelligence database — 161 color palettes, 57 font pairings, 50+ styles |
+| `web-reader` | Analyzes reference websites the user likes |
+| `deep-research` | Systematic web research for better industry-specific copy |
 
 ---
 
@@ -331,7 +319,7 @@ claude-webkit/
 ├── CLAUDE.md                        # Instructions for Claude (the brain)
 ├── .claude/
 │   ├── settings.local.json          # Tool permissions
-│   └── skills/                      # 10 bundled skills (auto-loaded)
+│   └── skills/                      # 13 bundled skills (auto-loaded)
 │       ├── frontend-design/         # Design methodology + 7 reference docs
 │       ├── shadcn-ui/               # Component library guide
 │       ├── humanizer/               # AI writing pattern removal
@@ -341,7 +329,10 @@ claude-webkit/
 │       ├── web-design-guidelines/   # Vercel Web Interface Guidelines
 │       ├── playwright-cli/          # Browser automation + 7 references
 │       ├── chrome-bridge-automation/ # Chrome visual QA fallback
-│       └── seo-audit/              # SEO analysis + references
+│       ├── seo-audit/              # SEO analysis + references
+│       ├── ui-ux-pro-max/          # Design intelligence database (161 palettes, 57 fonts)
+│       ├── web-reader/             # Web content extraction for reference sites
+│       └── deep-research/          # Systematic web research
 ├── docs/
 │   ├── system-prompt.md             # Agent personality (English)
 │   ├── system-prompt-es.md          # Agent personality (Spanish)

@@ -139,7 +139,7 @@ Ahora tienes:
 
 ## Skills Incluidos
 
-Este proyecto viene con **10 skills profesionales pre-instalados** en `.claude/skills/`. Se cargan automaticamente cuando Claude abre el proyecto — no necesitas instalar nada extra.
+Este proyecto viene con **13 skills profesionales pre-instalados** en `.claude/skills/`. Se cargan automaticamente cuando Claude abre el proyecto — no necesitas instalar nada extra.
 
 | Skill | Que hace |
 |-------|---------|
@@ -153,21 +153,9 @@ Este proyecto viene con **10 skills profesionales pre-instalados** en `.claude/s
 | `playwright-cli` | Automatizacion de navegador para que Claude tome capturas y revise el diseno |
 | `chrome-bridge-automation` | Navegador de respaldo — se conecta a tu Chrome para revisar el diseno visualmente |
 | `seo-audit` | Analisis SEO para meta tags, encabezados y visibilidad en buscadores |
-
-<details>
-<summary><strong>Opcional: Skills Extra para Mejores Resultados</strong></summary>
-
-Estos skills opcionales mejoran la experiencia pero **no son necesarios**:
-
-| Skill | Que hace | Como ayuda |
-|-------|---------|-----------|
-| `ui-ux-pro-max` | Base de datos de inteligencia de diseno | Recomendaciones de paletas de colores, fuentes y estilos con IA |
-| `web-reader` | Extraccion de contenido web | Analiza sitios web de referencia que le gusten al usuario |
-| `deep-research` | Investigacion web sistematica | Mejor contenido y copy especifico de la industria |
-
-Revisa la [documentacion de skills de Claude Code](https://docs.anthropic.com/en/docs/claude-code) para instrucciones de instalacion.
-
-</details>
+| `ui-ux-pro-max` | Base de datos de inteligencia de diseno — 161 paletas de colores, 57 pares de fuentes, 50+ estilos |
+| `web-reader` | Analiza sitios web de referencia que le gusten al usuario |
+| `deep-research` | Investigacion web sistematica para mejor copy especifico de la industria |
 
 ---
 
@@ -329,7 +317,7 @@ claude-webkit/
 ├── CLAUDE.md                        # Instrucciones para Claude (el cerebro)
 ├── .claude/
 │   ├── settings.local.json          # Permisos de herramientas
-│   └── skills/                      # 10 skills incluidos (se cargan solos)
+│   └── skills/                      # 13 skills incluidos (se cargan solos)
 │       ├── frontend-design/         # Metodologia de diseno + 7 docs de referencia
 │       ├── shadcn-ui/               # Guia de componentes
 │       ├── humanizer/               # Eliminacion de patrones IA
@@ -339,7 +327,10 @@ claude-webkit/
 │       ├── web-design-guidelines/   # Guias de Vercel Web Interface
 │       ├── playwright-cli/          # Automatizacion de navegador + 7 referencias
 │       ├── chrome-bridge-automation/ # QA visual con Chrome (respaldo)
-│       └── seo-audit/              # Analisis SEO + referencias
+│       ├── seo-audit/              # Analisis SEO + referencias
+│       ├── ui-ux-pro-max/          # Base de datos de inteligencia de diseno (161 paletas, 57 fuentes)
+│       ├── web-reader/             # Extraccion de contenido web para sitios de referencia
+│       └── deep-research/          # Investigacion web sistematica
 ├── docs/
 │   ├── system-prompt.md             # Personalidad del agente (ingles)
 │   ├── system-prompt-es.md          # Personalidad del agente (espanol)

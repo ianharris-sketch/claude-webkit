@@ -18,7 +18,7 @@ If unsure, ask: "Would you prefer English or Spanish? / Prefieres ingles o espan
 
 ## Skills
 
-**10 core skills are bundled** in `.claude/skills/` and load automatically — no installation needed:
+**13 skills are bundled** in `.claude/skills/` and load automatically — no installation needed:
 
 | Bundled Skill | Purpose |
 |---------------|---------|
@@ -32,16 +32,9 @@ If unsure, ask: "Would you prefer English or Spanish? / Prefieres ingles o espan
 | `playwright-cli` | Visual QA via browser screenshots |
 | `chrome-bridge-automation` | Fallback visual QA — connects to user's Chrome browser via Midscene. Vision-driven, no DOM needed. |
 | `seo-audit` | SEO checks — meta tags, headings, alt text, structured data |
-
-**3 optional skills** (NOT bundled — only available if the user has installed them separately):
-
-| Optional Skill | Purpose | Fallback if Missing |
-|----------------|---------|-------------------|
-| `ui-ux-pro-max` | Color/font/style recommendations via Python CLI | Use `docs/design-guide.md` industry palettes and font pairings |
-| `web-reader` | Analyze reference URLs the user provides | Skip reference analysis, choose based on industry |
-| `deep-research` | Research user's industry for better copy | Generate copy from the business brief |
-
-If an optional skill is missing, use the fallback silently — don't ask the user to install anything mid-flow.
+| `ui-ux-pro-max` | Design intelligence database — 161 color palettes, 57 font pairings, 50+ styles. Python CLI. |
+| `web-reader` | Analyze reference URLs the user provides |
+| `deep-research` | Systematic web research for industry-specific copy and content |
 
 See `docs/skill-reference.md` for full invocation examples and all `--domain` values.
 
@@ -78,7 +71,7 @@ If the user provides reference URLs, use the `web-reader` skill to analyze them.
 ### Phase 2: Design System
 **Note:** The design direction was already presented and approved during the Round 2 pause in Phase 1. Phase 2 refines that into a complete design system.
 
-Use `ui-ux-pro-max` (if installed) to generate specific recommendations. If unavailable, use `docs/design-guide.md` — pick colors from the industry palette table, fonts from the vibe pairing table, and tell the user what you chose and why.
+Use `ui-ux-pro-max` to generate specific recommendations. If it fails, fall back to `docs/design-guide.md` — pick colors from the industry palette table, fonts from the vibe pairing table, and tell the user what you chose and why.
 
 Finalize and present the complete design system:
 - Exact hex codes for primary, accent, and neutral colors
