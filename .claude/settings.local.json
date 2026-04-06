@@ -39,7 +39,9 @@
       "WebFetch",
       "Bash(export NVM_DIR=\"$HOME/.nvm\")",
       "Bash(. \"$NVM_DIR/nvm.sh\")",
-      "Bash(PATH=\"/usr/local/bin:$PATH\" /usr/local/bin/npx shadcn@latest init --defaults)"
+      "Bash(PATH=\"/usr/local/bin:$PATH\" /usr/local/bin/npx shadcn@latest init --defaults)",
+      "Skill(playwright-cli)",
+      "Skill(playwright-cli:*)"
     ]
   }
 }
