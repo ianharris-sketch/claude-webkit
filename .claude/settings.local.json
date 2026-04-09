@@ -41,7 +41,11 @@
       "Bash(. \"$NVM_DIR/nvm.sh\")",
       "Bash(PATH=\"/usr/local/bin:$PATH\" /usr/local/bin/npx shadcn@latest init --defaults)",
       "Skill(playwright-cli)",
-      "Skill(playwright-cli:*)"
+      "Skill(playwright-cli:*)",
+      "Bash(z-ai function:*)",
+      "Bash(unzip -l /Users/ianmacbookair/Downloads/Files.zip)",
+      "Bash(unzip -o /Users/ianmacbookair/Downloads/Files.zip -d /tmp/miami305/)",
+      "Bash(ditto -xk /Users/ianmacbookair/Downloads/Files.zip /tmp/miami305/)"
     ]
   }
 }
